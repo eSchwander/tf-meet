@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { Router, Link } from "@reach/router";
 
 import { Provider } from "react-redux";
-import store from "./store";
+import store from "../store";
 
 import Calendar from "./Calendar";
 import Login from "./Login";
@@ -13,6 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <Provider store={store}>

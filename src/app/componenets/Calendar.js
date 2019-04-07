@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import Slot from "./Slot";
-import { isPointInRectangle } from "./utils";
+import { isPointInRectangle } from "../utils";
 
 class Calendar extends React.Component {
   constructor(props) {

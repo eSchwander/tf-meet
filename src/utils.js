@@ -18,6 +18,12 @@ export function isPointInRectangle(x, y, x1, y1, x2, y2) {
   return x >= x1 && x <= x2 && y >= y1 && y <= y2;
 }
 
-function swap(x, y) {
-  return { y, x };
+export function date(string = new Date().getTime()) {
+  const opts = {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  };
+
+  return Intl.DateTimeFormat(undefined, opts).format(new Date(string));
 }
