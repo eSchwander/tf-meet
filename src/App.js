@@ -1,28 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ReactDOM from "react-dom";
 
-class App extends Component {
+import { Router, Link } from "@reach/router";
+
+import { Provider } from "react-redux";
+import store from "./store";
+
+import Calendar from "./Calendar";
+import Login from "./Login";
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Provider store={store}>
+        <div>
+          <header>
+            <Link to="/">Schedulizer!</Link>
+          </header>
+          <Router>
+            <Login path="/" />
+            <Calendar path="/calendar" cols={10} rows={10} />
+          </Router>
+        </div>
+      </Provider>
     );
   }
 }
 
-export default App;
+ReactDOM.render(<App />, document.getElementById("root"));
